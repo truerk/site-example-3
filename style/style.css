@@ -110,6 +110,10 @@ body{
   margin-left: 25px;
   cursor: pointer;
 }
+.button-our button:active{
+  box-shadow: inset 0px 0px 10px 0px #65696e;
+  ;
+}
 .circle{
   width: 34px;
   height: 34px;
@@ -227,6 +231,9 @@ body{
   font-weight: 600;
   color: #fff;
 }
+.subscribe-button button:active{
+  box-shadow: inset 0px 0px 20px 0px #DD4600;
+}
 
 /* --- works --- */
 .works{
@@ -263,7 +270,6 @@ body{
   align-content: space-between;
 }
 .project-block img{
-  margin-top: 30px;
   max-width: 100%;
 }
 .show-button button{
@@ -282,8 +288,54 @@ body{
   cursor: pointer;
   margin-bottom: 100px;  
 }
+.show-button button:active{
+  box-shadow: inset 0px 0px 10px 0px #EDEEF0;
+}
+.project-block{
+  position: relative;  
+  margin-top: 30px;
+}
 .project-hover{
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(247,96,14,0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 0;
+  border-radius: 10px;
+  padding: 0 15px;
+}
+.project-block:hover .project-hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.project-hover-caption{
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+}
+.project-hover-label{
+  font-size: 14px;
+  color: #fff;
+}
+.project-hover-button button{
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  width: 210px;
+  height: 50px;
+  background-color: #fff;
+  color: #f7600e;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.project-hover-button button:active{
+  box-shadow: inset 0px 0px 20px 0px #d8d9db;
 }
 
 /* --- works --- */
@@ -413,6 +465,7 @@ body{
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  padding: 0px 15px;
 }
 .team-avatar img{
   max-width: 100%;
@@ -420,6 +473,9 @@ body{
 }
 .team-social img{
   filter: grayscale(1);
+}
+.team-social a:hover{
+  filter: grayscale(0.5);
 }
 .team-name{
   font-size: 25px;
@@ -429,6 +485,23 @@ body{
 .team-label{
   font-size: 14px;
   color: #b5b8bc;
+}
+.team-block:hover .team-avatar img {
+  filter: grayscale(0);
+  color: #3b434c;
+  position: relative;
+  top: -10px;
+  box-shadow: 0px 5px 0px 0px #f7600e;
+  border-radius: 10px;
+}
+.team-block:hover .team-name{
+  color: #3b434c;
+}
+.team-block:hover .team-label{
+  color: #3b434c;
+}
+.team-block:hover .team-social img{
+  filter: grayscale(0);
 }
 .team-dots{
   display: flex;
@@ -444,10 +517,16 @@ body{
   background-color: #c4c6c9;
   cursor: pointer;
 }
+.dot:hover{
+  background-color: #A8AAAD;
+}
 .dot-active{
   width: 15px;
   height: 15px;
   border-radius: 7.5px;
+  background-color: #f7600e;
+}
+.dot-active:hover{
   background-color: #f7600e;
 }
 
@@ -534,6 +613,9 @@ body{
   display: flex;
   justify-content: space-between;
 }
+.form-social a:hover{
+  filter: grayscale(0.5);
+}
 
 /* --- footer --- */
 .footer{
@@ -569,6 +651,9 @@ body{
   font-size: 16px;
   font-weight: 600;
   color: #fff;
+}
+.button-hire button:active{
+  box-shadow: inset 0px 0px 20px 0px #DD4600;
 }
 .orange{
   color: #f7600e;
