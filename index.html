@@ -29,24 +29,32 @@
                     <span></span>
                 </div>                
             </div>
+        </div>        
+    </div>
+    <div class="menu">
+        <div class="menu-close-container">
+            <div></div>
+            <div class="menu-close">
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="menu">
-            <div class="menu-link">
-                <a href="">HOME</a>
-                <a href="/">ABOUT US</a>
-                <a href="/">SERVICES</a>
-                <a href="/">OUR WORKS</a>
-                <a href="/">CONTACT</a>  
-            </div>
-            <div class="menu-social">
-                <a href="/"><img src="img/hello/social/facebook.png" alt="facebook.png"></a>
-                <a href="/"><img src="img/hello/social/twitter.png" alt="twitter.png"></a>
-                <a href="/"><img src="img/hello/social/google+.png" alt="google+.png"></a>
-                <a href="/"><img src="img/hello/social/dribbble.png" alt="dribbble.png"></a>
-                <a href="/"><img src="img/hello/social/behance.png" alt="behance.png"></a>
-            </div>
+        <div class="menu-link">
+            <a href="">HOME</a>
+            <a href="/">ABOUT US</a>
+            <a href="/">SERVICES</a>
+            <a href="/">OUR WORKS</a>
+            <a href="/">CONTACT</a>  
+        </div>
+        <div class="menu-social">
+            <a href="/"><img src="img/hello/social/facebook.png" alt="facebook.png"></a>
+            <a href="/"><img src="img/hello/social/twitter.png" alt="twitter.png"></a>
+            <a href="/"><img src="img/hello/social/google+.png" alt="google+.png"></a>
+            <a href="/"><img src="img/hello/social/dribbble.png" alt="dribbble.png"></a>
+            <a href="/"><img src="img/hello/social/behance.png" alt="behance.png"></a>
         </div>
     </div>
+    <div class="wrapper-menu"></div>
     <div class="wrapper">
 
         <div class="slider">
@@ -171,17 +179,17 @@
                             <div class="clients-message">1 These guys are incredible! I get my project in 10 days and it was awesome!<br> Very good service! Highly recommended!</div>
                             <div class="clients-name">John Smith</div>
                         </div>
-                        <div class="clients-slider-page" id="clients-slider-1">
+                        <div class="clients-slider-page" id="clients-slider-2">
                             <div class="clients-avatar"><img src="img/clients/Warstwa.png" alt="Warstwa.png"></div>
                             <div class="clients-message">2 These guys are incredible! I get my project in 10 days and it was awesome!<br> Very good service! Highly recommended!</div>
                             <div class="clients-name">John Smith</div>
                         </div>
-                        <div class="clients-slider-page" id="clients-slider-1">
+                        <div class="clients-slider-page" id="clients-slider-3">
                             <div class="clients-avatar"><img src="img/clients/Warstwa.png" alt="Warstwa.png"></div>
                             <div class="clients-message">3 These guys are incredible! I get my project in 10 days and it was awesome!<br> Very good service! Highly recommended!</div>
                             <div class="clients-name">John Smith</div>
                         </div>
-                        <div class="clients-slider-page" id="clients-slider-1">
+                        <div class="clients-slider-page" id="clients-slider-4">
                             <div class="clients-avatar"><img src="img/clients/Warstwa.png" alt="Warstwa.png"></div>
                             <div class="clients-message">4 These guys are incredible! I get my project in 10 days and it was awesome!<br> Very good service! Highly recommended!</div>
                             <div class="clients-name">John Smith</div>
@@ -462,6 +470,23 @@
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
     /* --- открытие меню --- */
+        $('#burger-button').click(function(){
+            $('body').addClass('scroll-hidden');
+            $('.wrapper-menu').fadeIn(function(){
+                $('.menu').css('display','flex');
+            });
+
+        });
+        $('.wrapper-menu').click(function(){
+            $('body').removeClass('scroll-hidden');            
+            $('.menu').fadeOut();
+            $('.wrapper-menu').fadeOut();
+        });
+        $('.menu-close').click(function(){
+            $('body').removeClass('scroll-hidden');            
+            $('.menu').fadeOut();
+            $('.wrapper-menu').fadeOut();
+        });
 
     /* --- ховер эффекты --- */
         $('.works-img-container').hover(function(){

@@ -54,8 +54,97 @@ body{
   height: 2px;
   background-color: #fff;
 }
+
+/* --- menu --- */
 .menu{
+  position: absolute;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 600px;
   display: none;
+}
+.menu-link{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.menu-link a{
+  padding: 20px 0px;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+.menu-link a:hover{
+  color: #f7600e;
+}
+.menu-link a:last-child{
+  padding-bottom: 40px;
+}
+.menu-social img{
+  margin-left: 5px;
+}
+.menu-social img:hover{
+  filter: grayscale(0.5);
+}
+.menu-close-container{
+  width: 100%;
+  height: 100px;
+  margin-bottom: -50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.menu-close{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.menu-close span{
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 5px;  
+}
+.menu-close:hover span{
+  background-color: gray;
+}
+.menu-close span:first-child{  
+  -webkit-transform: rotateZ(45deg);
+  -moz-transform: rotateZ(45deg);
+  position: absolute;
+  top: 15px;
+}
+.menu-close span:last-child{  
+  -webkit-transform: rotateZ(-45deg);
+  -moz-transform: rotateZ(-45deg);
+  position: absolute;
+  top: 15px;
+}
+
+.wrapper-menu{
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  height: 100%;
+  width: 100%;  
+  background-color: rgba(59,67,76, 0.95);
+  display: none;  
+}
+.scroll-hidden{
+  overflow-y: hidden;
 }
 /* --- slider --- */
 .slider{
@@ -631,10 +720,9 @@ body{
   align-items: center;
   font-size: 16px;
   color: #fff;
+  padding: 0 15px;
+  flex-wrap: wrap;
 }
-
-
-
 
 /* --- общие --- */
 .button-hire button{
@@ -660,6 +748,206 @@ body{
 }
 .red{
   color: #d53049;
-  font-size: 32px;
   margin: 0px 1px;
+}
+
+
+
+
+/* --- адаптивность --- */
+
+
+@media screen and (min-width: 768px) and (max-width: 1170px) {
+  /* --- services --- */  
+
+  /* --- works ---*/
+  .project-block{    
+    width: 45%;
+  }
+  .project-hover{
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .show-button{
+    margin-top: 100px;
+  }
+
+  /* --- team --- */
+  .team-block{
+    max-width: 45%;
+  }
+  .team-dots{
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* --- slider --- */
+  .slider-container{
+    justify-content: space-around;
+  }
+  .slider-caption{
+    margin-top: 100px;
+  }
+  .slider-label{
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .slider-button{
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .circle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* --- services --- */
+  .services-container{
+    flex-wrap: wrap;
+  }
+  .services-block{
+    width: 45%;
+    margin: 25px 0px;
+    padding: 0 10px;
+  }
+  .services-block-caption{
+    margin: 10px 0px;
+  }
+
+  /* --- subscribe --- */
+  .subscribe-button{
+    margin-left: 0px;
+  }
+  .subscribe-input input{
+    text-overflow: ellipsis;  
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* --- works --- */
+  .project-block{
+    width: 100%;
+  }
+  .project-hover{
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .project-hover-button{
+    width: 100%;
+  }
+  .project-hover-button button{
+    width: 100%;
+  }
+  .show-button{
+    margin-top: 100px;
+  }
+
+  /* --- clients ---*/
+  .clients-slider-page .clients-avatar img,.clients-name{
+    margin: 0;
+  }  
+  .clients-slider-page{    
+    justify-content: space-around;
+  }
+
+  /* --- team --- */
+  .team-block{
+    max-width: 100%;
+  }
+  .team-slider{
+    justify-content: center;
+  }
+  .team-dots{
+    margin-top: 100px;
+  }
+
+  /* --- contact --- */
+  .contact-container{
+  }
+  .form-double-input input + input{
+    margin-left: 0;
+    margin-top: 25px;    
+  }
+  .form-double-input{
+    flex-direction: column;
+  }
+  .form-double-input input{
+    text-overflow: ellipsis;  
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .form-footer{
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-social{
+    margin-top: 25px;
+    margin-bottom: 15px;    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .form-social a{
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .button-hire{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 428px) {
+  /* --- header --- */
+  .header-container{
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .header-logo img{
+    max-width: 100%;
+  }
+
+  /* --- slider --- */
+  .slider-button{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* --- services --- */
+  .services-block{
+    width: 100%;
+    padding: 0;
+  }
+  .button-our{
+    display: flex;
+    justify-content: center;
+  }
+  .button-our button{
+    margin-top: 25px;
+    margin-left: 0px;
+  }
+
+  /* --- works --- */
+  .project-hover{
+    border-radius: 6px;
+  }
+  .show-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* --- footer --- */
+  .footer-container{
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+  }
+  .footer-copyright{
+    margin-bottom: 10px;
+  }
 }
