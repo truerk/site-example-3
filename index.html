@@ -63,17 +63,31 @@
                     <div class="slider-caption">WE DESIGN <span class="orange">THINGS</span></div>
                     <div class="slider-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
                     <div class="slider-button">
-                        <div class="button-hire"><button>HIRE US</button></div>
-                        <div class="button-our"><button>OUR WORKS</button></div>
+                        <div id="button-hire-us" class="button-hire"><button>HIRE US</button></div>
+                        <div id="button-our-works" class="button-our"><button>OUR WORKS</button></div>
                     </div>
-                    <div class="circle">
+                    <div id="button-circle" class="circle">
                         <div class="arrow-down"></div>
                     </div>
                 </div>
+
             </div>
         </div>
 
-        <div class="services">
+        <div class="hire">
+            <div class="hire-container">
+                <div class="hire-caption">HIRE <span class="orange">US</span></div>
+                <div class="hire-label">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br> qui officia deserunt mollit anim id est laborum</div>
+                <form action="/">
+                    <div class="hire-input"><input name="email" type="email" placeholder="Your Email"></div>
+                    <div class="hire-input"><input name="subject" type="text" placeholder="Subject"></div>
+                    <div class="hire-input hire-message"><textarea name="message" placeholder="Your Message"></textarea></div>
+                    <div class="hire-send"><input type="submit" value="SEND MESSAGE"></div>
+                </form>
+            </div>            
+        </div>        
+
+        <div id="services" class="services">
             <div class="services-container">
                 <div class="services-block">
                     <div class="services-block-logo"><img src="img/sevices/print.png" alt="print.png"></div>
@@ -107,7 +121,7 @@
             </div>
         </div>
 
-        <div class="works">
+        <div id="our-works" class="works">
             <div class="works-container">
                 <div class="works-header">
                     <div class="works-caption">OUR <span class="orange">WORKS</span></div>
@@ -469,31 +483,56 @@
 
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
-    /* --- открытие меню --- */
-        $('#burger-button').click(function(){
+    $(document).ready(function(){
+        /* --- Скроллинги --- */
+        $('#button-circle').click(function(){
+            $('html, body').animate({ scrollTop: $('#services').offset().top }, 1000);
+        });
+
+        $('#button-our-works').click(function(){
+            $('html, body').animate({ scrollTop: $('#our-works').offset().top }, 1000);
+        });
+
+        /* --- модалка hire us --- */ 
+
+        $('#button-hire-us').click(function(){
             $('body').addClass('scroll-hidden');
             $('.wrapper-menu').fadeIn(function(){
-                $('.menu').css('display','flex');
+                $('.hire').css('display', 'block');
+                $('.hire-container').animate({opacity: "1", top: "-15px"  }, 1000);
             });
-
-        });
-        $('.wrapper-menu').click(function(){
-            $('body').removeClass('scroll-hidden');            
-            $('.menu').fadeOut();
-            $('.wrapper-menu').fadeOut();
-        });
-        $('.menu-close').click(function(){
-            $('body').removeClass('scroll-hidden');            
-            $('.menu').fadeOut();
-            $('.wrapper-menu').fadeOut();
         });
 
-    /* --- ховер эффекты --- */
-        $('.works-img-container').hover(function(){
-            $(this).find(".works-hover").css('opacity','1');
-        },function(){
-            $(this).find(".works-hover").css('opacity','0');
-        });
+
+        /* --- открытие меню --- */
+            $('#burger-button').click(function(){
+                $('body').addClass('scroll-hidden');
+                $('.wrapper-menu').fadeIn(function(){
+                    $('.menu').css('display','flex');
+                });
+
+            });
+            $('.wrapper-menu').click(function(){
+                $('body').removeClass('scroll-hidden');            
+                $('.menu').fadeOut();  
+                $('.hire-container').animate({opacity: "0", top: "0px"  }, 1000);
+                $('.hire').css('display','none');
+                $('.wrapper-menu').fadeOut();
+            });
+            $('.menu-close').click(function(){
+                $('body').removeClass('scroll-hidden');            
+                $('.menu').fadeOut();
+                $('.wrapper-menu').fadeOut();
+            });    
+
+        /* --- ховер эффекты --- */
+            /*$('.works-img-container').hover(function(){
+                $(this).find(".works-hover").css('opacity','1');
+            },function(){
+                $(this).find(".works-hover").css('opacity','0');
+            });*/
+
+     });
     
 </script>
 </body>
