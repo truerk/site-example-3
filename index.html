@@ -76,6 +76,7 @@
 
         <div class="hire">
             <div class="hire-container">
+                <div id="hire-closes" class="hire-close">X</div>
                 <div class="hire-caption">HIRE <span class="orange">US</span></div>
                 <div class="hire-label">Excepteur sint occaecat cupidatat non proident, sunt in culpa<br> qui officia deserunt mollit anim id est laborum</div>
                 <form action="/">
@@ -496,11 +497,15 @@
         /* --- модалка hire us --- */ 
 
         $('#button-hire-us').click(function(){
-            $('body').addClass('scroll-hidden');
             $('.wrapper-menu').fadeIn(function(){
                 $('.hire').css('display', 'block');
                 $('.hire-container').animate({opacity: "1", top: "-15px"  }, 1000);
             });
+        });
+
+        $('#hire-closes').click(function(){
+            $('.hire').css('display','none');
+            $('.wrapper-menu').fadeOut();
         });
 
 
