@@ -224,12 +224,12 @@
                     <div class="team-label">Sed ut perspiciatis unde omnis iste natus error sit<br> voluptatem accusantium doloremque laudantium totam rem</div>
                 </div>
                 <div class="team-member-container">
-                    <div class="team-slider" id="team-slider-1">
+                    <div class="team-slider  team-slider-active" id="team-slider-1">
                         <div class="team-block">
                             <div class="team-avatar">
                                 <img src="img/team/Team1.png" alt="Team1.png">
                             </div>
-                            <div class="team-name">CATHERINA GAIL</div>
+                            <div class="team-name">1 CATHERINA GAIL</div>
                             <div class="team-social">
                                 <a href="/"><img src="img/team/social/facebook.png" alt="facebook.png"></a>
                                 <a href="/"><img src="img/team/social/twitter.png" alt="twitter.png"></a>
@@ -274,12 +274,12 @@
                             <div class="team-label">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
                         </div>
                     </div>
-                    <div class="team-slider team-slider-active" id="team-slider-2">
+                    <div class="team-slider" id="team-slider-2">
                         <div class="team-block">
                             <div class="team-avatar">
                                 <img src="img/team/Team1.png" alt="Team1.png">
                             </div>
-                            <div class="team-name">CATHERINA GAIL</div>
+                            <div class="team-name">2 CATHERINA GAIL</div>
                             <div class="team-social">
                                 <a href="/"><img src="img/team/social/facebook.png" alt="facebook.png"></a>
                                 <a href="/"><img src="img/team/social/twitter.png" alt="twitter.png"></a>
@@ -329,7 +329,7 @@
                             <div class="team-avatar">
                                 <img src="img/team/Team1.png" alt="Team1.png">
                             </div>
-                            <div class="team-name">CATHERINA GAIL</div>
+                            <div class="team-name">3 CATHERINA GAIL</div>
                             <div class="team-social">
                                 <a href="/"><img src="img/team/social/facebook.png" alt="facebook.png"></a>
                                 <a href="/"><img src="img/team/social/twitter.png" alt="twitter.png"></a>
@@ -379,7 +379,7 @@
                             <div class="team-avatar">
                                 <img src="img/team/Team1.png" alt="Team1.png">
                             </div>
-                            <div class="team-name">CATHERINA GAIL</div>
+                            <div class="team-name">4 CATHERINA GAIL</div>
                             <div class="team-social">
                                 <a href="/"><img src="img/team/social/facebook.png" alt="facebook.png"></a>
                                 <a href="/"><img src="img/team/social/twitter.png" alt="twitter.png"></a>
@@ -426,8 +426,8 @@
                     </div>                    
                 </div>
                 <div class="team-dots">
-                    <span id="dot-1" class="dot"></span>
-                    <span id="dot-2" class="dot dot-active"></span>
+                    <span id="dot-1" class="dot dot-active"></span>
+                    <span id="dot-2" class="dot"></span>
                     <span id="dot-3" class="dot"></span>
                     <span id="dot-4" class="dot"></span>
                 </div>
@@ -484,7 +484,41 @@
 
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
+    //<div class="clients-slider-page clients-active" id="clients-slider-1">
+    //<div class="clients-slider">
     $(document).ready(function(){
+        /* --- слайдер team --- */
+        $('.dot').click(function(){
+            $('.team-member-container').find('.team-slider-active').removeClass('team-slider-active');
+            var slider_id = parseInt($(this).attr('id').slice(4));
+            $('.team-dots').find('.dot-active').removeClass('dot-active');
+            $(this).addClass('dot-active');
+            $('#team-slider-' + slider_id).addClass('team-slider-active');
+        });
+
+        /* --- слайдер clients --- */
+        $('.right-arrow').click(function(){
+            var active_slider = $('.clients-slider').find('.clients-active').attr('id').slice(15);
+            var next_slider = parseInt(active_slider) + 1;
+            $('.clients-slider').find('.clients-active').removeClass('clients-active');           
+            if (next_slider == 5) {
+                $('.clients-slider').find('#clients-slider-' + 1).addClass('clients-active');
+            }else{
+                $('.clients-slider').find('#clients-slider-' + next_slider).addClass('clients-active');
+            }
+        });
+
+        $('.left-arrow').click(function(){
+            var active_slider = $('.clients-slider').find('.clients-active').attr('id').slice(15);
+            var next_slider = parseInt(active_slider) - 1;
+            $('.clients-slider').find('.clients-active').removeClass('clients-active');           
+            if (next_slider == 0) {
+                $('.clients-slider').find('#clients-slider-' + 4).addClass('clients-active');
+            }else{
+                $('.clients-slider').find('#clients-slider-' + next_slider).addClass('clients-active');
+            }
+        });     
+
         /* --- Скроллинги --- */
         $('#button-circle').click(function(){
             $('html, body').animate({ scrollTop: $('#services').offset().top }, 1000);

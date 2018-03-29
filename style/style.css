@@ -474,8 +474,17 @@ body{
   justify-content: space-between;
   display: none;
 }
-.clients-active{
+.clients-active{;
   display: flex;
+  animation: clients-slider 1s ease-in-out;
+}
+@keyframes clients-slider{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 .left-arrow{
   min-width: 30px;
@@ -545,6 +554,15 @@ body{
 }
 .team-slider-active{
   display: flex;
+  animation: team-slider 1s ease-in-out;
+}
+@keyframes team-slider{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 .team-block{
   margin-top: 35px;
@@ -830,7 +848,6 @@ body{
   outline: none;
   cursor: pointer;
   border-radius: 10px;
-  padding: 20px;
   background-color: #f7600e;
   border: none;
   font-size: 16px;
